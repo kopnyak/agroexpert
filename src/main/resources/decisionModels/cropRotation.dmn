@@ -1,0 +1,678 @@
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_F06F75B8-8D77-4BD6-AEFF-5B95D7E60047" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_7FAE31D5-7758-49C7-857B-21885E7F557A" name="cropRotation" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_F06F75B8-8D77-4BD6-AEFF-5B95D7E60047">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_56B592FC-5A4C-45C8-A7E0-726704BC25B6" name="cropRotation" isCollection="false">
+    <dmn:itemComponent id="_58DE36D3-6892-46C6-96E2-F131B37B85C2" name="name" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_A37A92E5-C0E6-4AE2-A466-C228DDABCBC0" name="previousCrop" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_C8F57654-5DE2-4269-963F-8D61322053AC" name="nextCrop" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_39D5BE20-7EA5-4E7C-9F61-17FFF642BEA5" name="cropRotationDecision" isCollection="false">
+    <dmn:itemComponent id="_62DA95F6-E828-4C36-8276-CEB2C782FFDB" name="allowability" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_A39103F4-B2FC-4BC7-BA95-DA5730F5FD24" name="colour" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_A7A9EE15-E906-45A9-A1FD-FE71B2E5605E" name="reason" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_6D46CAED-9B5B-4DF8-A1AD-4EE1A896D689" name="field" isCollection="false">
+    <dmn:itemComponent id="_4756E87A-259B-4B4E-8BB9-70DC6221062B" name="region" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_5D809D1D-68E8-4F9F-B438-419F03962A47" name="square" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:inputData id="_98DDF9F1-E682-4E23-BF12-1E2E35FDA611" name="cropRotation">
+    <dmn:extensionElements/>
+    <dmn:variable id="_9E38FA66-D92D-4C93-BC59-9C1E4966B785" name="cropRotation" typeRef="cropRotation"/>
+  </dmn:inputData>
+  <dmn:decision id="_7C238C33-5E58-46A9-86D8-EE43546DA2DF" name="cropDecision">
+    <dmn:extensionElements/>
+    <dmn:variable id="_5821F15B-136E-4976-922A-0A2DE01F960A" name="cropDecision" typeRef="string"/>
+    <dmn:informationRequirement id="_0E7ACF89-6AAE-4D3F-9444-4539C51BBBF9">
+      <dmn:requiredInput href="#_98DDF9F1-E682-4E23-BF12-1E2E35FDA611"/>
+    </dmn:informationRequirement>
+    <dmn:knowledgeRequirement id="_16A67CA2-7DA2-47AA-B174-A97F9FEFE639">
+      <dmn:requiredKnowledge href="#_F255504E-EAD8-4094-BC1E-05F377B82C57"/>
+    </dmn:knowledgeRequirement>
+    <dmn:invocation id="_B526D1B9-976C-4824-8D11-73C7B82E1952">
+      <dmn:literalExpression id="_B36CEE15-147E-4C29-9462-A6351EA8DACB">
+        <dmn:text>cropModel</dmn:text>
+      </dmn:literalExpression>
+      <dmn:binding>
+        <dmn:parameter id="_D7005E3E-E1D8-41B5-91C1-88C78B4511F0" name="crop" typeRef="string"/>
+        <dmn:literalExpression id="_48AE5A23-C536-45A9-9D1A-5676DE3662B1">
+          <dmn:text>cropRotation.name</dmn:text>
+        </dmn:literalExpression>
+      </dmn:binding>
+      <dmn:binding>
+        <dmn:parameter id="_22453D7E-D6E2-41EC-BEB2-795C2717614A" name="previousCrop" typeRef="string"/>
+        <dmn:literalExpression id="_9E60AF13-EA72-4AD8-9E83-C3F80C99AA8D">
+          <dmn:text>cropRotation.previousCrop</dmn:text>
+        </dmn:literalExpression>
+      </dmn:binding>
+    </dmn:invocation>
+  </dmn:decision>
+  <dmn:businessKnowledgeModel id="_F255504E-EAD8-4094-BC1E-05F377B82C57" name="cropModel">
+    <dmn:extensionElements/>
+    <dmn:variable id="_3A9718BD-C5BA-497D-AB6F-7C51EA5B49EA" name="cropModel" typeRef="cropRotationDecision"/>
+    <dmn:encapsulatedLogic id="_C11DE16C-4957-48B4-BFBE-7CEF9495DEA8" kind="FEEL">
+      <dmn:formalParameter id="_E5608385-491C-4764-A985-D30B9870CE10" name="crop" typeRef="string"/>
+      <dmn:formalParameter id="_EAD8F335-4A80-477C-878A-1E1F75E0CB3F" name="previousCrop" typeRef="string"/>
+      <dmn:decisionTable id="_7B6B7E19-C2B9-4B63-AC59-CD0E1EAF14B1" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+        <dmn:input id="_98E187A1-D947-4C06-B2CD-79277A9DF14A">
+          <dmn:inputExpression id="_BB0C98E3-20EE-4ECE-A158-53EDB2651E3D" typeRef="string">
+            <dmn:text>previousCrop</dmn:text>
+          </dmn:inputExpression>
+        </dmn:input>
+        <dmn:input id="_F77383CF-334B-4907-A16D-0A2F19D12AA4">
+          <dmn:inputExpression id="_C938CA44-2323-4BB1-813A-866660970EB0" typeRef="string">
+            <dmn:text>crop</dmn:text>
+          </dmn:inputExpression>
+        </dmn:input>
+        <dmn:output id="_D91BA051-0928-4320-9DD1-DB0386349C3D" name="allowability" typeRef="string"/>
+        <dmn:output id="_22275577-4097-4F8C-9AC3-5D6CC41800F1" name="сolour" typeRef="string"/>
+        <dmn:output id="_F95D8727-466D-470D-8D68-869EA14585A9" name="reason" typeRef="string"/>
+        <dmn:annotation name="Desc"/>
+        <dmn:rule id="_0932F98E-06F5-4CF1-A7E8-5C15EAEC1E67">
+          <dmn:inputEntry id="_F0988EAF-652F-490C-8433-68D60C35DC3A">
+            <dmn:text>"Ячмінь озимий"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_41AEA9E6-5ED9-4613-95D0-489BC35EA839">
+            <dmn:text>"Соняшник"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_D7F61122-29F8-41F2-A3A6-086F83DAE0BA">
+            <dmn:text>"Відмінно"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_5FE4FABE-EB3F-4FCB-BB1F-82B606B41F69">
+            <dmn:text>"Зелений"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_23EA86D4-3CF6-447F-9D5F-BA6E6BD85F3C">
+            <dmn:text>"Один із найкращих попередників, тому що рано звільняє площу, є достатньо часу для оптимізації рослинних решток від попередника, внесення добрив та накопичення вологи."</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_55E553F4-E08E-4CD7-BCE2-756FF3EC6DFA">
+          <dmn:inputEntry id="_398E35F3-1551-4CFE-A29B-E6C0C3C659CF">
+            <dmn:text>"Ячмінь ярий"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_8300440D-F11E-439B-AFC1-C137A0AAB363">
+            <dmn:text>"Соняшник"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_76F7062B-82FA-4804-A817-4BA7407CF125">
+            <dmn:text>"Відмінно"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_42EC02DD-79A3-4FC6-A25F-62D8966DEE26">
+            <dmn:text>"Зелений"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_3C949ABE-C3A7-444F-99DE-0889851FBFC8">
+            <dmn:text>"Один із найкращих попередників, тому що рано звільняє площу, є достатньо часу для оптимізації рослинних решток від попередника, внесення добрив та накопичення вологи."</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_5F59E167-896F-431F-B5F6-956C70BD2041">
+          <dmn:inputEntry id="_7B5041A9-D34C-42EE-BCC7-35C7B424EC1B">
+            <dmn:text>"Пшениця озима"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_CCCCB2F4-51DA-4591-852D-0A14ABDD14EF">
+            <dmn:text>"Соняшник"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_8B2E731F-721B-45B9-9B5B-5141671823FD">
+            <dmn:text>"Відмінно"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_BF6CA704-A07F-44CF-B8D7-4B124911C72C">
+            <dmn:text>"Зелений"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_29E2B758-CC97-484F-B772-95DE58A417AD">
+            <dmn:text>"Один із найкращих попередників, тому що рано звільняє площу, є достатньо часу для оптимізації рослинних решток від попередника, внесення добрив та накопичення вологи."</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_37C4CCB8-9A8E-4249-A0E8-F438B9A07215">
+          <dmn:inputEntry id="_80B029D1-64D3-4BAF-AC85-39F99FCFE85A">
+            <dmn:text>"Пшениця яра"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_70856D0A-43BC-4802-8F5F-D9894F8EF661">
+            <dmn:text>"Соняшник"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_829DBD9E-410B-47B9-8E38-D8BC9D7781F8">
+            <dmn:text>"Відмінно"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_B3750C67-96E9-4A37-B590-87240398F61E">
+            <dmn:text>"Зелений"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_60164C7B-2D4D-434F-8298-C0CC456FE6E6">
+            <dmn:text>"Один із найкращих попередників, тому що рано звільняє площу, є достатньо часу для оптимізації рослинних решток від попередника, внесення добрив та накопичення вологи."</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_FD60086B-AC85-475B-A61F-A3613CDB14D1">
+          <dmn:inputEntry id="_42896E67-2B95-486C-AB6A-D56B97B2CA26">
+            <dmn:text>"Кукурудза на силос"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_ABC0F30D-4415-4D97-B068-3F72095136F9">
+            <dmn:text>"Соняшник"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_E9483A7A-5AFF-4EC9-92AF-E8833772AF6F">
+            <dmn:text>"Відмінно"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_DC35875E-ED53-4D11-8B7D-2BB556AD2B43">
+            <dmn:text>"Зелений"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_B119A3BF-6036-4F6F-A9B3-D02F5B06ACDB">
+            <dmn:text>"Один із найкращих попередників, тому що рано звільняє площу та практично відустні рослинні рештки від попередника."</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_06A6B4DE-E76C-462A-A434-AD212F88F3CA">
+          <dmn:inputEntry id="_2CD36778-E5E2-421B-A167-1A4EBB25669C">
+            <dmn:text>"Горох"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_67710765-905A-482F-95C0-30895BC76009">
+            <dmn:text>"Соняшник"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_1D8DFD42-0805-4A31-BE71-22C5C1B65157">
+            <dmn:text>"Допустимо"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_5040B84E-84ED-47B7-AEDD-456ADB684F5C">
+            <dmn:text>"Жовтий"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_05DD1BD0-D068-4CE7-9DDC-07D58951AB59">
+            <dmn:text>"Попередник дуже рано звільняє площу. Є дуже багато часу для виконання робіт перед посівом соняшника. Допустимий, а не найкращий попердник тому, що після гороху більш раціонально розміщувати пшеницю або ячмінь, а не соняшник."</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_35BD03F1-FB63-457A-B017-22F6DFDC3959">
+          <dmn:inputEntry id="_2C1A3B43-417F-4D5E-9B49-A3AB33B3DEA3">
+            <dmn:text>"Кукурудза на зерно"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_801C8B50-2083-42BD-9D26-DE450A94D587">
+            <dmn:text>"Соняшник"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_D8D2297B-0EE3-4D4F-9730-76B25AB16C44">
+            <dmn:text>"Допустимо"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_6568E2A4-762F-4887-A8BD-3755D53B59A5">
+            <dmn:text>"Жовтий"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_1AA09220-A31D-4A64-80FF-988DA7748C09">
+            <dmn:text>"Не найкращий але допустимий попередник. Тому що залишає після себе значні рослинні рештки та коріння, що ускладнює їх менеджмент та може ускладнити посів соняшника. Також кукурудза забирає багато елементів з грунту. Гердіциди кукурудзи можуть мати післядію на соняшник. Не залишається часу на обробку грунту з осені."</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_BFB653FA-AE7C-40F8-8A66-83A9491B0FED">
+          <dmn:inputEntry id="_25F0E79F-EA25-4C1B-93B8-9B9E0B2CA3C2">
+            <dmn:text>"Соя"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_893E85F5-3932-40E3-BE3E-35B448DB1780">
+            <dmn:text>"Соняшник"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_AE804B67-E5FD-47F2-A04B-C80C96E62906">
+            <dmn:text>"Не рекомендовано"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_37E7D9E6-172E-429E-BF44-DE7D7DE1901E">
+            <dmn:text>"Червоний"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_CAEA4EBC-1A51-4D27-B672-389962FCB371">
+            <dmn:text>"Поганий попередник тому, що соя збирається пізно, а також забирає з грунту дуже багато азоту. Соя - це також дводольна культура, як і соняшник, тому є ризик від залишкових шкідників та збудників хвороб сої."</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_C1657723-16FE-4C29-9860-0A0E8CA9214B">
+          <dmn:inputEntry id="_D0F4D898-0EA8-4A17-8F6B-DAE664DBAC6D">
+            <dmn:text>"Ріпак озимий"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_BF1F8CFE-AEC0-4A6A-AEC2-4FE5493BD48A">
+            <dmn:text>"Соняшник"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_4875D279-620D-42F6-9C51-C458364C3A1F">
+            <dmn:text>"Не рекомендовано"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_C0C7A345-0601-42BC-9370-59776A261640">
+            <dmn:text>"Червоний"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_81FC90C1-FBEA-47CE-9A03-ECBBACF51B89">
+            <dmn:text>"Допустим але не найкращий попередник тому, що залишкові збудники хвород та шкідники після ріпаку можуть загрожувати наступному соняшнику. Окрім цього, найкращими послідовниками ріпаку є пшениця та ячмінь, а не соняшник."</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_F17F2C39-FF28-4D35-AD03-83DA749A8610">
+          <dmn:inputEntry id="_7CEA6567-36F2-4BF7-A5A5-315C6981B2B1">
+            <dmn:text>"Ріпак ярий"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_F70F5F17-DD55-4F3E-B17C-1C477D781069">
+            <dmn:text>"Соняшник"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_C2D51497-E48B-42C5-A9A1-CA7C1B5599A8">
+            <dmn:text>"Не рекомендовано"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_3ADA9E8C-C152-49A3-B712-B141FA88545B">
+            <dmn:text>"Червоний"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_42E164FE-77E7-46D9-BFA2-E0AF48206ABE">
+            <dmn:text>"Допустимий але не найкращий попередник тому, що залишкові збудники хвород та шкідники після ріпаку можуть загрожувати наступному соняшнику. Окрім цього, найкращими послідовниками ріпаку є пшениця та ячмінь, а не соняшник."</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_3F5554A7-5029-4634-A047-EE7AD0911D49">
+          <dmn:inputEntry id="_6444605B-CA1B-460C-B81F-ECC108E2494D">
+            <dmn:text>"Соняшник"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_C71291BA-0DCF-43A3-B73C-CE2D11742D02">
+            <dmn:text>"Соняшник"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_E9839781-715B-4063-8529-C0C99ED49467">
+            <dmn:text>"Не рекомендовано"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_BEBD4814-78B4-4B76-898E-9AD6F423B048">
+            <dmn:text>"Червоний"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_92DD4C6F-EEF4-459E-8AC6-667654F561BB">
+            <dmn:text>"Накопичуються негативні фактори, які спонукає соняшник - хвороби, шкідники, діючі речовини, вовчок."</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+      </dmn:decisionTable>
+    </dmn:encapsulatedLogic>
+  </dmn:businessKnowledgeModel>
+  <dmn:decision id="_ED5F23AF-1AC5-416E-AC93-6E202D10CC91" name="nextCropDecision">
+    <dmn:extensionElements/>
+    <dmn:variable id="_89A749ED-DF18-4036-BAA9-5CCA207ED8FA" name="nextCropDecision"/>
+    <dmn:informationRequirement id="_4374C716-4B80-4855-B733-BE1DDA6F21BE">
+      <dmn:requiredInput href="#_98DDF9F1-E682-4E23-BF12-1E2E35FDA611"/>
+    </dmn:informationRequirement>
+    <dmn:knowledgeRequirement id="_BBC28E34-FE69-461C-A0ED-DA0D1E8086AA">
+      <dmn:requiredKnowledge href="#_4683C9AD-42AB-4AD9-939A-2635C70C0D86"/>
+    </dmn:knowledgeRequirement>
+    <dmn:invocation id="_4538A6EF-C216-4EF0-B4A5-1143449003BF">
+      <dmn:literalExpression id="_E6D4D06C-F603-44B2-8316-0636C59E5224">
+        <dmn:text>nextCropModel</dmn:text>
+      </dmn:literalExpression>
+      <dmn:binding>
+        <dmn:parameter id="_4E3B860A-0E26-4822-836D-FA6DE05A51E7" name="crop" typeRef="string"/>
+        <dmn:literalExpression id="_A7CB799D-F974-4A2F-979E-10DF31A67F12">
+          <dmn:text>cropRotation.name</dmn:text>
+        </dmn:literalExpression>
+      </dmn:binding>
+      <dmn:binding>
+        <dmn:parameter id="_20147CF9-383A-4D78-A740-738776BF7766" name="nextCrop" typeRef="string"/>
+        <dmn:literalExpression id="_F5E01D4D-2B0F-4613-B7E2-E3219D88C395">
+          <dmn:text>cropRotation.nextCrop</dmn:text>
+        </dmn:literalExpression>
+      </dmn:binding>
+    </dmn:invocation>
+  </dmn:decision>
+  <dmn:businessKnowledgeModel id="_4683C9AD-42AB-4AD9-939A-2635C70C0D86" name="nextCropModel">
+    <dmn:extensionElements/>
+    <dmn:variable id="_0F23E737-AF54-4DC4-8D5C-7FFDA4DC605A" name="nextCropModel" typeRef="cropRotationDecision"/>
+    <dmn:encapsulatedLogic id="_8364F066-E648-43E5-9729-5DE8F002C9A9" kind="FEEL">
+      <dmn:formalParameter id="_CEC1202C-8446-4047-91EB-E7BFD457D891" name="crop" typeRef="string"/>
+      <dmn:formalParameter id="_27A0C710-4F21-440E-B717-6363DEAF2ED3" name="nextCrop"/>
+      <dmn:decisionTable id="_833A1CAB-E5DA-498B-9D75-F4849C3082E9" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+        <dmn:input id="_93BCBCD3-4479-4AC8-9788-764DC5DDF7EF">
+          <dmn:inputExpression id="_5BA961FF-5578-4797-BB7B-20E10E98CFD7" typeRef="string">
+            <dmn:text>crop</dmn:text>
+          </dmn:inputExpression>
+        </dmn:input>
+        <dmn:input id="_D9393FCC-0916-4ECA-A29B-A2D630701E5B">
+          <dmn:inputExpression id="_1E354589-2DB3-44A1-90C6-DFFE3F92C253" typeRef="string">
+            <dmn:text>nextCrop</dmn:text>
+          </dmn:inputExpression>
+        </dmn:input>
+        <dmn:output id="_F84426B6-6F2B-434D-94D0-4EA3D03A8589" name="allowability" typeRef="string"/>
+        <dmn:output id="_6455B20F-309B-4867-B59D-BD957B8129BF" name="colour" typeRef="string"/>
+        <dmn:output id="_76602683-01C3-4914-AE0E-217D1B0C7268" name="reason" typeRef="string"/>
+        <dmn:annotation name="annotation-1"/>
+        <dmn:rule id="_FF29309B-7D43-43A5-8B58-D12411320630">
+          <dmn:inputEntry id="_A91B66AD-A60F-413B-A66E-81A2AB43D04D">
+            <dmn:text>"Соняшник"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_85162374-7415-4004-B746-F20808E77193">
+            <dmn:text>"Ячмінь ярий"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_2865F895-1D4E-407B-96DC-DD3BDB872AF7">
+            <dmn:text>"Відмінно"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_A790BA8F-4D2D-4FFB-89DF-AE94694CB15C">
+            <dmn:text>"Зелений"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_6F1639D3-7757-44F0-B051-C22FA882B8C8">
+            <dmn:text>"Тут вказати фактори"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_736F0E72-6081-4995-A124-9333817A0166">
+          <dmn:inputEntry id="_B288ED04-136A-4443-8F98-6FBC1931BBB3">
+            <dmn:text>"Соняшник"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_7EA44004-7E5E-4BCF-8B95-6A33F8CB03BE">
+            <dmn:text>"Пшениця яра"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_8D7AC03C-D44C-4E43-AABD-C02CC4D8FE36">
+            <dmn:text>"Відмінно"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_3C8E9BE7-D738-4867-8A62-90FF9E5DD34B">
+            <dmn:text>"Зелений"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_CE1CD17E-4029-48FD-8C6D-38279B6F2B22">
+            <dmn:text/>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_FDB71B77-898F-44B6-9915-C13BBF37FEE2">
+          <dmn:inputEntry id="_69B0882D-EDDF-48E0-99E1-74485851A64C">
+            <dmn:text>"Соняшник"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_4534C2A0-CE50-4298-84E8-137593C610B2">
+            <dmn:text>"Ячмінь озимий"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_60A2207E-D925-4E48-8F4C-07CE46C459AC">
+            <dmn:text>"Допустимо"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_23212BBC-57BF-4178-91D4-8447FA819F3C">
+            <dmn:text>"Жовтий"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_84C2B5C4-C594-4E1F-96D5-51288D6D9012">
+            <dmn:text/>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_384962F3-B124-4A84-9623-02217DBC7F4B">
+          <dmn:inputEntry id="_DDDDAE1E-701C-40A5-98D1-6828FD6725C6">
+            <dmn:text>"Соняшник"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_14AAE671-E5CF-4448-9593-13585100850B">
+            <dmn:text>"Пшениця озима"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_7E48DEF9-5FF3-4282-B436-2878CF991802">
+            <dmn:text>"Допустимо"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_C9127CA7-9FAC-4D06-9D96-0EF5336A94D9">
+            <dmn:text>"Жовтий"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_FAE40CEA-BFD2-4806-A931-26DC84405304">
+            <dmn:text/>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_B937C7AD-1D42-4A67-99A4-4B2F1CEABCA1">
+          <dmn:inputEntry id="_FCCD23A1-3BD6-4ABA-800C-BED778AA4772">
+            <dmn:text>"Соняшник"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_7A00D541-3841-4278-81B1-262A4008507F">
+            <dmn:text>"Кукурудза на силос"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_E6813CA2-A709-4C1A-8BB6-04019638BC29">
+            <dmn:text>"Допустимо"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_8AB0E455-68A9-48E9-B569-56366F5C5916">
+            <dmn:text>"Жовтий"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_B33C37A1-0417-486E-B144-902FCB0A9262">
+            <dmn:text/>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_6E7665D4-0614-4AF7-87D1-430BD585F578">
+          <dmn:inputEntry id="_96B40C9F-66B1-4CDF-9239-19B5A4536F92">
+            <dmn:text>"Соняшник"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_45A3A9B4-8279-4654-8747-A9FEDAEE492F">
+            <dmn:text>"Кукурудза на зерно"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_11EB1F60-6A2C-4AEE-B47A-43080DA3FE7D">
+            <dmn:text>"Не рекомендовано"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_5641733A-9211-487E-BADA-C5BF4A20C9C5">
+            <dmn:text>"Червоний"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_D9A725CD-F9FB-4DB3-8EAF-3FE1C7C4AF46">
+            <dmn:text/>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_BFC234EB-E4D2-4822-A3A2-C9062298C5EC">
+          <dmn:inputEntry id="_A657F89E-0A30-4BD3-B294-6F6774319E27">
+            <dmn:text>"Соняшник"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_95B388AB-B553-4B0D-B522-C2F463BA7F2B">
+            <dmn:text>"Соя"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_52828CB9-05F3-4FDF-9CD0-163C71B6BFBC">
+            <dmn:text>"Не рекомендовано"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_4656DFB6-75CF-430C-9854-8D7EA9DFE215">
+            <dmn:text>"Червоний"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_4D02A02E-553A-4E2C-8917-AD43EF6A03BA">
+            <dmn:text/>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_FF6895B1-7B42-4E70-AD10-E6A0B1DEB469">
+          <dmn:inputEntry id="_E82A4056-CE71-457D-9D12-6F4E74311D39">
+            <dmn:text>"Соняшник"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_25F47ECD-8DFB-4633-86FF-91C7D3E79D62">
+            <dmn:text>"Ріпак озимий"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_FDD4F083-E074-4745-9DD3-DD6DE7F3CE62">
+            <dmn:text>"Не рекомендовано"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_37F77DC6-6DA6-43F7-92C5-5658F641FA14">
+            <dmn:text>"Червоний"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_BE556327-9F20-4C6D-9CFE-C7695F5133CC">
+            <dmn:text/>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_BF710BC2-9D6B-4E2D-BC4A-09D26B96A0BC">
+          <dmn:inputEntry id="_729B2F59-8A04-49B6-B0FE-CD6AA6D71111">
+            <dmn:text>"Соняшник"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_80A4E252-B2D5-4E66-8374-CD15D6D0DE00">
+            <dmn:text>"Ріпак ярий"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_BD32EFD0-45B3-47CE-B809-7C4C4F0A44BD">
+            <dmn:text>"Не рекомендовано"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_2F6AF2C2-8D5F-477A-9682-ABD49BA419F6">
+            <dmn:text>"Червоний"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_92B0AB40-42C4-461F-9254-5666163F6686">
+            <dmn:text/>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_9F030B45-983C-4782-AFA4-455F4E213EA0">
+          <dmn:inputEntry id="_62C1BFF6-6E16-43F3-9633-A9C09A8EF1C9">
+            <dmn:text>"Соняшник"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_7DF1F46F-675B-46A0-B1E4-568B69FCA45D">
+            <dmn:text>"Соняшник"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_D01904C8-A37C-47C6-A68A-BB0DEE9B7C14">
+            <dmn:text>"Не рекомендовано"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_1D4B6D1F-7C28-435F-BD00-0C21F0B1A58C">
+            <dmn:text>"Червоний"</dmn:text>
+          </dmn:outputEntry>
+          <dmn:outputEntry id="_37DC0556-5747-4856-9CED-F8AEC96398C8">
+            <dmn:text/>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+      </dmn:decisionTable>
+    </dmn:encapsulatedLogic>
+  </dmn:businessKnowledgeModel>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_599932FB-8F7A-43D1-B843-50D0A2BA90BE" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_B526D1B9-976C-4824-8D11-73C7B82E1952">
+            <kie:width>50</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>614</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_B36CEE15-147E-4C29-9462-A6351EA8DACB"/>
+          <kie:ComponentWidths dmnElementRef="_48AE5A23-C536-45A9-9D1A-5676DE3662B1">
+            <kie:width>614</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_9E60AF13-EA72-4AD8-9E83-C3F80C99AA8D">
+            <kie:width>614</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_7B6B7E19-C2B9-4B63-AC59-CD0E1EAF14B1">
+            <kie:width>50</kie:width>
+            <kie:width>203</kie:width>
+            <kie:width>131</kie:width>
+            <kie:width>152</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>663</kie:width>
+            <kie:width>100</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_C11DE16C-4957-48B4-BFBE-7CEF9495DEA8">
+            <kie:width>50</kie:width>
+            <kie:width>1419</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_4538A6EF-C216-4EF0-B4A5-1143449003BF">
+            <kie:width>50</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>619</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_E6D4D06C-F603-44B2-8316-0636C59E5224"/>
+          <kie:ComponentWidths dmnElementRef="_A7CB799D-F974-4A2F-979E-10DF31A67F12">
+            <kie:width>619</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_F5E01D4D-2B0F-4613-B7E2-E3219D88C395">
+            <kie:width>619</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_833A1CAB-E5DA-498B-9D75-F4849C3082E9">
+            <kie:width>50</kie:width>
+            <kie:width>104</kie:width>
+            <kie:width>199</kie:width>
+            <kie:width>221</kie:width>
+            <kie:width>124</kie:width>
+            <kie:width>238</kie:width>
+            <kie:width>194</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_8364F066-E648-43E5-9729-5DE8F002C9A9">
+            <kie:width>50</kie:width>
+            <kie:width>1150</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_98DDF9F1-E682-4E23-BF12-1E2E35FDA611" dmnElementRef="_98DDF9F1-E682-4E23-BF12-1E2E35FDA611" isCollapsed="false">
+        <dmndi:DMNStyle fontSize="8">
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="850" y="488" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_7C238C33-5E58-46A9-86D8-EE43546DA2DF" dmnElementRef="_7C238C33-5E58-46A9-86D8-EE43546DA2DF" isCollapsed="false">
+        <dmndi:DMNStyle fontSize="8">
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="781" y="385" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_F255504E-EAD8-4094-BC1E-05F377B82C57" dmnElementRef="_F255504E-EAD8-4094-BC1E-05F377B82C57" isCollapsed="false">
+        <dmndi:DMNStyle fontSize="8">
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="632" y="385" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_ED5F23AF-1AC5-416E-AC93-6E202D10CC91" dmnElementRef="_ED5F23AF-1AC5-416E-AC93-6E202D10CC91" isCollapsed="false">
+        <dmndi:DMNStyle fontSize="8">
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="912" y="386" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_4683C9AD-42AB-4AD9-939A-2635C70C0D86" dmnElementRef="_4683C9AD-42AB-4AD9-939A-2635C70C0D86" isCollapsed="false">
+        <dmndi:DMNStyle fontSize="8">
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="1054" y="385" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_0E7ACF89-6AAE-4D3F-9444-4539C51BBBF9" dmnElementRef="_0E7ACF89-6AAE-4D3F-9444-4539C51BBBF9">
+        <di:waypoint x="950" y="513"/>
+        <di:waypoint x="781" y="410"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_16A67CA2-7DA2-47AA-B174-A97F9FEFE639" dmnElementRef="_16A67CA2-7DA2-47AA-B174-A97F9FEFE639">
+        <di:waypoint x="682" y="410"/>
+        <di:waypoint x="831" y="410"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_4374C716-4B80-4855-B733-BE1DDA6F21BE" dmnElementRef="_4374C716-4B80-4855-B733-BE1DDA6F21BE">
+        <di:waypoint x="900" y="513"/>
+        <di:waypoint x="962" y="386"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_BBC28E34-FE69-461C-A0ED-DA0D1E8086AA" dmnElementRef="_BBC28E34-FE69-461C-A0ED-DA0D1E8086AA">
+        <di:waypoint x="1104" y="410"/>
+        <di:waypoint x="962" y="411"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
