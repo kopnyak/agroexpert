@@ -1,0 +1,241 @@
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_ADFAD565-79BB-4C8C-BC8A-0DE08605AB52" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_AEA1DD4B-34C0-4EFF-85B7-67B45CEC4050" name="iteratingOverListItemIndex" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_ADFAD565-79BB-4C8C-BC8A-0DE08605AB52">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_45369999-3DDD-4830-A07F-B40EC85A1E7F" name="tDailyTable" isCollection="true">
+    <dmn:itemComponent id="_2CD232BD-475C-44CC-8755-15B169A10959" name="Date" isCollection="false">
+      <dmn:typeRef>date</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_0A79FE29-19EB-4B7B-8919-AB748E089927" name="Price" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:decision id="_560462E7-AABD-4D11-A7A7-4F1138489974" name="DailyPrices">
+    <dmn:extensionElements/>
+    <dmn:variable id="_F1C33083-343F-4B50-92D8-67BDBFCDB920" name="DailyPrices"/>
+    <dmn:relation id="_19A2CFFA-CD70-4768-9F37-E1A18937988C">
+      <dmn:column id="_B6208F8B-D4AA-4529-A102-A94566969BAE" name="Date" typeRef="date"/>
+      <dmn:column id="_FEFFA83F-E34D-45A9-A862-821D8642B203" name="Price" typeRef="number"/>
+      <dmn:row id="_F6F26138-0D3E-4663-9543-B8417271CFD6">
+        <dmn:literalExpression id="_90E8BC62-B37C-40BD-9E5D-8844888B9BDC">
+          <dmn:text>"2017-05-15"</dmn:text>
+        </dmn:literalExpression>
+        <dmn:literalExpression id="_125DDD3B-FE75-4DFB-A3BA-C4B97D2B6A24">
+          <dmn:text>139.04</dmn:text>
+        </dmn:literalExpression>
+      </dmn:row>
+      <dmn:row id="_328A61E2-AEAF-421E-B0A2-73C1D69890C5">
+        <dmn:literalExpression id="_B2BE3428-2059-42E4-B0D9-79131ED27BFE">
+          <dmn:text>"2017-05-16"</dmn:text>
+        </dmn:literalExpression>
+        <dmn:literalExpression id="_04BD62A9-AD82-40C6-8629-5B8E244095CB">
+          <dmn:text>139.62</dmn:text>
+        </dmn:literalExpression>
+      </dmn:row>
+      <dmn:row id="_98F9A722-EABF-450A-AFB5-52DF55512958">
+        <dmn:literalExpression id="_48452B5F-23D1-4FDD-8AFD-D71058287BBF">
+          <dmn:text>"2017-05-17"</dmn:text>
+        </dmn:literalExpression>
+        <dmn:literalExpression id="_333CC362-1CE1-455E-AF67-85CCAB207466">
+          <dmn:text>136.07</dmn:text>
+        </dmn:literalExpression>
+      </dmn:row>
+      <dmn:row id="_EA150188-6829-4D45-BFEB-897B7CF10242">
+        <dmn:literalExpression id="_8D966FCA-9D23-4F56-9187-641B64EBC0A5">
+          <dmn:text>"2017-05-18"</dmn:text>
+        </dmn:literalExpression>
+        <dmn:literalExpression id="_C15D6AC1-D422-4956-89FA-5E28E4AFF260">
+          <dmn:text>137.26</dmn:text>
+        </dmn:literalExpression>
+      </dmn:row>
+      <dmn:row id="_2A5AE625-B9DB-4DD8-9661-C9E503575656">
+        <dmn:literalExpression id="_93586AD2-85DE-4A48-AB97-9076FEF22C9F">
+          <dmn:text>"2017-05-19"</dmn:text>
+        </dmn:literalExpression>
+        <dmn:literalExpression id="_3A719241-7FC4-46E4-9A4D-C4D343FEBBD5">
+          <dmn:text>137.84</dmn:text>
+        </dmn:literalExpression>
+      </dmn:row>
+      <dmn:row id="_91FAAC70-B009-45D5-9C7D-AB1A6D0DF0A3">
+        <dmn:literalExpression id="_731CF8D3-B03C-4EA5-96D3-B4D1130EEA6D">
+          <dmn:text>"2017-05-20"</dmn:text>
+        </dmn:literalExpression>
+        <dmn:literalExpression id="_2406767C-93B1-4E9C-A47C-60D01F97B627">
+          <dmn:text>139</dmn:text>
+        </dmn:literalExpression>
+      </dmn:row>
+      <dmn:row id="_2E4B1C7D-C642-4206-BF7A-FD1AC7A14247">
+        <dmn:literalExpression id="_A10DDD14-7141-4EA6-9D50-A0E975E9D1AF">
+          <dmn:text>"2017-05-21"</dmn:text>
+        </dmn:literalExpression>
+        <dmn:literalExpression id="_B223410C-FF4A-46ED-ACB3-9A25B8BF5B46">
+          <dmn:text>139.14</dmn:text>
+        </dmn:literalExpression>
+      </dmn:row>
+      <dmn:row id="_B9F2E9D1-7151-4844-98A0-7B34D8675E53">
+        <dmn:literalExpression id="_7C1D9B8D-81DE-49C7-A2CD-1CF53E5C44CB">
+          <dmn:text>"2017-05-22"</dmn:text>
+        </dmn:literalExpression>
+        <dmn:literalExpression id="_19523F7C-1601-42E7-AFC8-C931657B41D6">
+          <dmn:text>139.78</dmn:text>
+        </dmn:literalExpression>
+      </dmn:row>
+      <dmn:row id="_A58874A4-8B0F-4F02-BFE9-15878C604FED">
+        <dmn:literalExpression id="_974D3672-C4F8-486D-BBEB-E8EEAACDCE0D">
+          <dmn:text>"2017-05-23"</dmn:text>
+        </dmn:literalExpression>
+        <dmn:literalExpression id="_62F1D1F2-7F39-4924-B2ED-1797AB2DA445">
+          <dmn:text>140.97</dmn:text>
+        </dmn:literalExpression>
+      </dmn:row>
+      <dmn:row id="_D2301D60-3D47-4225-B2DD-AA611B3DC2A7">
+        <dmn:literalExpression id="_90B571BB-2AFB-455A-85F5-E3E6991A6F04">
+          <dmn:text>"2017-05-24"</dmn:text>
+        </dmn:literalExpression>
+        <dmn:literalExpression id="_1AAEAA0A-E109-4020-A396-4EC22A8EF49B">
+          <dmn:text>141.22</dmn:text>
+        </dmn:literalExpression>
+      </dmn:row>
+      <dmn:row id="_4DA23B97-8198-4664-8E52-63396591381C">
+        <dmn:literalExpression id="_51EE12EF-3B48-49AE-94A4-ACB495946630">
+          <dmn:text>"2017-05-25"</dmn:text>
+        </dmn:literalExpression>
+        <dmn:literalExpression id="_9ABB9335-BD31-4684-B7CF-A943C1598BE3">
+          <dmn:text>141.34</dmn:text>
+        </dmn:literalExpression>
+      </dmn:row>
+      <dmn:row id="_4EA690AF-ED43-4E52-85AA-9F90FE1CDD81">
+        <dmn:literalExpression id="_29222CE5-8EF8-4B09-8349-50B07AF275E8">
+          <dmn:text>"2017-05-26"</dmn:text>
+        </dmn:literalExpression>
+        <dmn:literalExpression id="_DDB38DA0-B06D-4028-BD35-E2139D613974">
+          <dmn:text>141.29</dmn:text>
+        </dmn:literalExpression>
+      </dmn:row>
+    </dmn:relation>
+  </dmn:decision>
+  <dmn:decision id="_C2E11033-1F48-402E-9E45-4BB40D6302D8" name="SMA10">
+    <dmn:extensionElements/>
+    <dmn:variable id="_C0B0117C-E852-4A8C-906A-01295F61E093" name="SMA10" typeRef="tDailyTable"/>
+    <dmn:informationRequirement id="_4DB3A23D-A3E2-40D3-9BBA-EB19BB92131A">
+      <dmn:requiredDecision href="#_560462E7-AABD-4D11-A7A7-4F1138489974"/>
+    </dmn:informationRequirement>
+    <dmn:knowledgeRequirement id="_5280A8D5-C347-4435-822A-C94CD67F85C0">
+      <dmn:requiredKnowledge href="#_88101453-D5C4-418C-85CC-5C481E649B5E"/>
+    </dmn:knowledgeRequirement>
+    <dmn:literalExpression id="_9D868116-A6BF-49B5-BA4A-98213AD92D0A">
+      <dmn:text>for i in 1..count(DailyPrices) return ApplyMA(i, DailyPrices)</dmn:text>
+    </dmn:literalExpression>
+  </dmn:decision>
+  <dmn:businessKnowledgeModel id="_88101453-D5C4-418C-85CC-5C481E649B5E" name="ApplyMA">
+    <dmn:extensionElements/>
+    <dmn:variable id="_FC503BB4-6621-4AAD-B2A7-80E7C30B2B13" name="ApplyMA"/>
+    <dmn:encapsulatedLogic id="_522F8F65-0C49-4A56-82D2-9CF34918859B" kind="FEEL">
+      <dmn:formalParameter id="_57422FDB-517D-4095-A934-71BDB8D431DC" name="i" typeRef="number"/>
+      <dmn:formalParameter id="_74F59204-FF88-4897-9311-353646A53D44" name="DailyPrices" typeRef="tDailyTable"/>
+      <dmn:context id="_87CDA405-82C3-4588-845A-0BE1BD440E3F">
+        <dmn:contextEntry>
+          <dmn:variable id="_6FE33F39-9C31-44E1-916F-5E8CF985DFF0" name="Date" typeRef="date"/>
+          <dmn:literalExpression id="_E64ABB61-E05E-4C86-8EE7-1B86813805EA">
+            <dmn:text>DailyPrices.Date[i]</dmn:text>
+          </dmn:literalExpression>
+        </dmn:contextEntry>
+        <dmn:contextEntry>
+          <dmn:variable id="_CDA38F4F-0C22-4804-983F-62E040A25658" name="Average" typeRef="number"/>
+          <dmn:literalExpression id="_8059C453-AA5A-4BC0-BF0E-06F2A4B781C6">
+            <dmn:text>if i&lt;10 then decimal(mean(sublist(DailyPrices.Price,1,i)), 2)
+else decimal(mean(sublist(DailyPrices.Price,i-9,10)), 2)</dmn:text>
+          </dmn:literalExpression>
+        </dmn:contextEntry>
+      </dmn:context>
+    </dmn:encapsulatedLogic>
+  </dmn:businessKnowledgeModel>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_9B5BC43A-4757-47DB-9E38-A599C4FFB339" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_19A2CFFA-CD70-4768-9F37-E1A18937988C">
+            <kie:width>50</kie:width>
+            <kie:width>169</kie:width>
+            <kie:width>100</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_90E8BC62-B37C-40BD-9E5D-8844888B9BDC"/>
+          <kie:ComponentWidths dmnElementRef="_125DDD3B-FE75-4DFB-A3BA-C4B97D2B6A24"/>
+          <kie:ComponentWidths dmnElementRef="_B2BE3428-2059-42E4-B0D9-79131ED27BFE"/>
+          <kie:ComponentWidths dmnElementRef="_04BD62A9-AD82-40C6-8629-5B8E244095CB"/>
+          <kie:ComponentWidths dmnElementRef="_48452B5F-23D1-4FDD-8AFD-D71058287BBF"/>
+          <kie:ComponentWidths dmnElementRef="_333CC362-1CE1-455E-AF67-85CCAB207466"/>
+          <kie:ComponentWidths dmnElementRef="_8D966FCA-9D23-4F56-9187-641B64EBC0A5"/>
+          <kie:ComponentWidths dmnElementRef="_C15D6AC1-D422-4956-89FA-5E28E4AFF260"/>
+          <kie:ComponentWidths dmnElementRef="_93586AD2-85DE-4A48-AB97-9076FEF22C9F"/>
+          <kie:ComponentWidths dmnElementRef="_3A719241-7FC4-46E4-9A4D-C4D343FEBBD5"/>
+          <kie:ComponentWidths dmnElementRef="_731CF8D3-B03C-4EA5-96D3-B4D1130EEA6D"/>
+          <kie:ComponentWidths dmnElementRef="_2406767C-93B1-4E9C-A47C-60D01F97B627"/>
+          <kie:ComponentWidths dmnElementRef="_A10DDD14-7141-4EA6-9D50-A0E975E9D1AF"/>
+          <kie:ComponentWidths dmnElementRef="_B223410C-FF4A-46ED-ACB3-9A25B8BF5B46"/>
+          <kie:ComponentWidths dmnElementRef="_7C1D9B8D-81DE-49C7-A2CD-1CF53E5C44CB"/>
+          <kie:ComponentWidths dmnElementRef="_19523F7C-1601-42E7-AFC8-C931657B41D6"/>
+          <kie:ComponentWidths dmnElementRef="_974D3672-C4F8-486D-BBEB-E8EEAACDCE0D"/>
+          <kie:ComponentWidths dmnElementRef="_62F1D1F2-7F39-4924-B2ED-1797AB2DA445"/>
+          <kie:ComponentWidths dmnElementRef="_90B571BB-2AFB-455A-85F5-E3E6991A6F04"/>
+          <kie:ComponentWidths dmnElementRef="_1AAEAA0A-E109-4020-A396-4EC22A8EF49B"/>
+          <kie:ComponentWidths dmnElementRef="_51EE12EF-3B48-49AE-94A4-ACB495946630"/>
+          <kie:ComponentWidths dmnElementRef="_9ABB9335-BD31-4684-B7CF-A943C1598BE3"/>
+          <kie:ComponentWidths dmnElementRef="_29222CE5-8EF8-4B09-8349-50B07AF275E8"/>
+          <kie:ComponentWidths dmnElementRef="_DDB38DA0-B06D-4028-BD35-E2139D613974"/>
+          <kie:ComponentWidths dmnElementRef="_9D868116-A6BF-49B5-BA4A-98213AD92D0A">
+            <kie:width>593</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_87CDA405-82C3-4588-845A-0BE1BD440E3F">
+            <kie:width>50</kie:width>
+            <kie:width>172</kie:width>
+            <kie:width>592</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_E64ABB61-E05E-4C86-8EE7-1B86813805EA">
+            <kie:width>592</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_8059C453-AA5A-4BC0-BF0E-06F2A4B781C6">
+            <kie:width>592</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_522F8F65-0C49-4A56-82D2-9CF34918859B">
+            <kie:width>50</kie:width>
+            <kie:width>834</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_560462E7-AABD-4D11-A7A7-4F1138489974" dmnElementRef="_560462E7-AABD-4D11-A7A7-4F1138489974" isCollapsed="false">
+        <dmndi:DMNStyle fontSize="8">
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="581" y="341" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_C2E11033-1F48-402E-9E45-4BB40D6302D8" dmnElementRef="_C2E11033-1F48-402E-9E45-4BB40D6302D8" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="581" y="226" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_88101453-D5C4-418C-85CC-5C481E649B5E" dmnElementRef="_88101453-D5C4-418C-85CC-5C481E649B5E" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="354" y="225" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_5280A8D5-C347-4435-822A-C94CD67F85C0" dmnElementRef="_5280A8D5-C347-4435-822A-C94CD67F85C0">
+        <di:waypoint x="404" y="250"/>
+        <di:waypoint x="581" y="251"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_4DB3A23D-A3E2-40D3-9BBA-EB19BB92131A" dmnElementRef="_4DB3A23D-A3E2-40D3-9BBA-EB19BB92131A">
+        <di:waypoint x="631" y="366"/>
+        <di:waypoint x="631" y="276"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
